@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "tools.DataCollector"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+task listJars << {
+	configurations.compile.each { File file -> println file.name }
+}
+
+task getHomeDir << {
+    println gradle.gradleHomeDir
+}
